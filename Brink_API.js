@@ -4,6 +4,15 @@ function Brink_API() {
 	this.user_id = 0;
 	this.access_token = '';
 	
+	this.is_active_token = function() {
+		var token_parts = this.access_token.split(".");
+		var token_data = JSON.parse(atob(token_parts[1]));
+		var token_time = token_data.exp * 1000;
+		var current_time = Date.now();
+		if (token_time > current_time) return true;
+		else return false;
+	}
+	
 	this.send = function(args, callback) {
 		
 		var request_method = 'GET';
