@@ -24,14 +24,18 @@ Javascript Brink API Wrapper
 		console.log('returned: ',response);
 	});
 	
-	Brink.get_flight({"flight_id" : 12}, function(response){
+	var parameters = {"flight_id" : 12};
+	Brink.get_flight(parameters, function(response) {
 		console.log('returned: ',response);
 	});
 	
-	Brink.create_flight(function(response){
-		console.log('returned: ',response);
-	});
-	
-	Brink.get_flight_data({"flight_id" : 15, "prop" : {"page" : 1, "per_page" : 5}}, function(response){
+	parameters = {
+		"flight_id" : 15, 
+		"prop" : {
+			"page" : 1, 
+			"per_page" : 5
+		}
+	};
+	Brink.get_flight_data(parameters, function(response){
 		console.log('returned: ',response);
 	});
