@@ -3,7 +3,7 @@ Javascript Brink API Wrapper
 
 .. code-block:: javascript
 	
-	var Brink = new Brink_API();
+	var Brink_API = new Brink_API();
 	
 	// Login to the api to receive a jwt token that can be used in future requests without the need to reauthenticate
 	
@@ -12,20 +12,20 @@ Javascript Brink API Wrapper
 		"password" : "password"
 	};
 	
-	Brink.login(user_data, function(response) {
+	Brink_API.login(user_data, function(response) {
 		console.log('returned: ',response);
-		Brink.access_token = JSON.parse(response).jwt_token;
+		Brink_API.access_token = JSON.parse(response).jwt_token;
 	});
 
 	// After logging in using the Brink.login() method, the token is already set 
 	// so additional requests can be handled correctly
 	
-	Brink.get_all_flights(function(response){
+	Brink_API.get_all_flights(function(response){
 		console.log('returned: ',response);
 	});
 	
 	var parameters = {"flight_id" : 12};
-	Brink.get_flight(parameters, function(response) {
+	Brink_API.get_flight(parameters, function(response) {
 		console.log('returned: ',response);
 	});
 	
@@ -36,6 +36,6 @@ Javascript Brink API Wrapper
 			"per_page" : 5
 		}
 	};
-	Brink.get_flight_data(parameters, function(response){
+	Brink_API.get_flight_data(parameters, function(response){
 		console.log('returned: ',response);
 	});
